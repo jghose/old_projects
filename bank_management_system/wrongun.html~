@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MNNIT Hostel Management System</title>
+<script type="text/javascript">
+function valid_field (field)
+{
+	with (field)
+	{
+		if (value==null||value=="" || value =="0")
+			{return false}
+	else 
+		{return true}
+	}
+}		
+
+function valid_form(thisform)
+{
+	with (thisform)
+	{	
+		
+		if(valid_field(user)==false) 
+							{alert ("Username field cannot be empty");
+								document.form1.user.focus();
+							return false}
+		if(valid_field(pass)==false) 
+							{alert ("Password field cannot be empty");
+							document.form1.pass.focus();
+							return false}
+	}
+}
+
+function isvalid(evt)
+{
+	var charCode = (evt.which) ? evt.which : event.keyCode
+	if ( (charCode == 13) || (charCode == 8) || (charCode == 95) || (charCode > 47 && charCode < 58) || (charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) )
+		return true;
+	else
+	{
+		alert("Please enter appropriate character");
+		return false;
+	}
+}
+
+</script>
+
+<script language="javascript">
+						var currenttime = "April 13, 2011 13:01:00"
+			var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
+			var serverdate=new Date(currenttime)
+			
+			function padlength(what)
+			{
+				var output=(what.toString().length==1)? "0"+what : what
+				return output
+			}
+			
+			function displaytime()
+			{
+				serverdate.setSeconds(serverdate.getSeconds()+1)
+				
+				var datestring=montharray[serverdate.getMonth()]+" "+padlength(serverdate.getDate())+", "+serverdate.getFullYear()
+				var timestring=padlength(serverdate.getHours())+":"+padlength(serverdate.getMinutes())+":"+padlength(serverdate.getSeconds())
+				document.getElementById("servertime").innerHTML=datestring+" "+timestring
+			}
+			
+			window.onload=function()
+			{
+				setInterval("displaytime()", 1000)
+			}			
+
+   	</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="styles.css" rel="stylesheet" type="text/css">
+<link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="HEADER">
+	<h1 align="justify">MNNIT hostel management system </h1>
+
+	<ul>
+		<li><a href="index.php">Home</a></li>
+		<li><a href="cus.php">Contact Us</a></li>
+		<li><a href="fp.php">Forgot Password</a></li>
+		<li><a href="rules.html">Rules</a></li>
+		<li><a href="http://www.mnnit.ac.in" target="_blank">MNNIT Home</a></li>
+		<li><a href="reg_form.html">Register</a></li>
+		
+
+	</ul>
+	<div class="Visual"> </div>
+</div>
+
+<div id="CONTENT" align="center">
+	<h2> </h2>
+	<div id="TEXT">
+
+		<p align="justify">
+	  <form name="form1" method="post" action="user.php" onSubmit="return valid_form(this)">
+      <table width="681" border="0" cellspacing="10" cellpadding="0" align="center">
+	  <tr>
+    <td colspan="2"><div align="center"><strong>Login with your Login Id as Registration no. and Password as provided during Registration.</strong> </div></td>
+    
+  </tr>
+          		
+          		<tr>
+           		  <td width="322"><div align="right" class="style1"><span class="style22">Username:</span>&nbsp;</div></td>
+
+            		<td width="439">
+              			<div align="left">
+              			  <input name="user" type="int" id="user" onKeyPress="return isvalid(event)">
+              			      
+       			        </div></td>
+          		</tr>
+          		
+				<tr>
+            		<td><div align="right" class="style1"><span class="style25">Password:&nbsp;</span></div></td>
+            		<td>
+
+              			<div align="left">
+              			  <input name="pass" type="password" id="pass">
+              			         			        </div></td>
+          		</tr>
+				<tr>
+            		<td><div align="right" class="style1"><span class="style25">SEX:&nbsp;</span></div></td>
+    <td><select name="program" id="program" style="width:140px" >
+          		    <option value="m">Male </option>
+
+					<option value="f">Female </option>
+
+					     		    </div></td>
+										
+        		    </select> </td>
+          		</tr>
+          	
+				<tr>
+            		<td colspan="2"></span>
+            		  <div align="center">
+            		      &nbsp;&nbsp;&nbsp;
+            		             		    </div></td>
+
+   		</tr>
+          		
+				<tr>
+            		<td colspan="2">
+                <div align="center">
+  				<input name="submit" type="submit" id="submit" value="Login">
+  &nbsp;&nbsp;&nbsp;
+  				<input name="reset" type="reset" id="reset" value="Reset">
+  &nbsp;&nbsp;&nbsp; </div>            		</td>
+ <font color="red" size="5"><b>Authorization Failed. <br>Incorrect Username/Password !! </b></font>      
+
+          		</tr>
+       	</table>
+    </form>
+				</p>
+	</div>
+</div>
+
+<div id="FOOTER">
+
+<p>MNNIT ALLAHABAD</p>
+<p>Developed by Tux Warriors</p>
+
+</div>
+
+</body>
+</html>

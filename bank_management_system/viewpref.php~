@@ -1,0 +1,91 @@
+<html>
+<link href="styles.css" rel="stylesheet" type="text/css">
+<link href="styles.css" rel="stylesheet" type="text/css">
+<div id="HEADER">
+	<h1 align="center" font size=18>Your Preferences</h1>
+<?php
+include('authenticate.php');
+$uname=$_COOKIE['Login'];
+include("mysqlconect.php");
+$con=mysqlconnect();
+mysql_select_db("user", $con);
+?>
+<font size=5>Preference type: <?php 
+$res=mysql_query("select * from pref where reg_no=$uname",$con);
+while($row=mysql_fetch_array($res))
+	{
+		$hname=$row['hname'];
+		$preftype=$row['preftype'];
+	}
+	switch($preftype)
+	{
+		case 'c':
+		echo "BY Your City";
+		echo "<br> Your city name:";
+		$r=mysql_query("select * from student where reg_no=$uname",$con);
+while($row=mysql_fetch_array($r))
+	{
+		echo $row['city'];
+			}
+
+		break;
+		case 'b':
+		echo "By your Branch";
+		echo "<br> Your branch name:";
+		$r=mysql_query("select * from student where reg_no=$uname",$con);
+while($row=mysql_fetch_array($r))
+	{
+		echo $row['branch'];
+			}
+
+		break;
+		case 'cb':
+		echo "By both branch and city: ";
+		break;
+		default:echo "By Particular Student";
+		echo "<br>";
+					echo "<table border='1'>
+<tr>
+<th>Reg_no</th>
+<th>Name</th>
+<th>Branch</th>
+<th>City</th>
+</tr>";
+
+$r=mysql_query("select * from stu_pref where reg_no=$uname",$con);
+while($xow=mysql_fetch_array($r))
+	{
+		 $x=$xow['regpre'];
+			}
+		
+
+$xar=mysql_query("select * from student where reg_no=$x",$con);
+while($rowd=mysql_fetch_array($xar))
+  {
+  echo "<tr>";
+  echo "<td>" . $rowd['reg_no'] . "</td>";
+  echo "<td>" . $rowd['name'] . "</td>";
+  echo "<td>" . $rowd['branch'] . "</td>";
+  echo "<td>" . $rowd['city'] . "</td>";
+  echo "</tr>";
+  }
+echo "</table>";
+
+		break;
+		}
+		echo "<br> Your chosen hostel:";
+		$xres=mysql_query("select * from pref where reg_no=$uname",$con);
+while($xrow=mysql_fetch_array($xres))
+	{
+		$hname=$xrow['hname'];
+	}
+	if($hname) {echo $hname;}
+	else{
+		$xrest=mysql_query("select * from pref where reg_no=$uname",$con);
+while($xrowx=mysql_fetch_array($xrest))
+	{
+		$hname=$xrowx['hname'];
+	} 
+	echo $hname;
+	}	?>
+		</font></html>

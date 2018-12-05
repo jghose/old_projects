@@ -1,0 +1,219 @@
+<script type="text/javascript">
+
+function valid_field (field)
+{
+	with (field)
+	{
+		if (value==null||value=="" || value =="0")
+			{return false}
+	else 
+		{return true}
+	}
+}		
+
+function valid_form(thisform)
+{
+	with (thisform)
+	{	
+		
+		if(valid_field(nm)==false) 
+							{alert ("Name field cannot be empty");
+								document.form1.nm.focus();
+							return false}
+		if(valid_field(fname)==false) 
+							{alert ("Father's name field cannot be empty");
+							document.form1.fname.focus();
+							return false}
+								if(valid_field(city)==false) 
+							{alert ("City field cannot be empty");
+							document.form1.city.focus();
+							return false}
+								if(valid_field(reg_no)==false) 
+							{alert ("Registration field cannot be empty");
+							document.form1.reg_no.focus();
+							return false}
+							if(valid_field(pws)==false) 
+							{alert ("Password field cannot be empty");
+							document.form1.pws.focus();
+							return false}
+							var e=thisform.elements;
+							
+if(e['pws'].value != e['pwc'].value) {
+alert('Your passwords do not match. Please type more carefully.');
+return false;
+}
+return true;
+				
+							
+}
+	}
+
+
+function isvalid(evt)
+{
+	var charCode = (evt.which) ? evt.which : event.keyCode
+	if ( (charCode == 13) || (charCode == 8) || (charCode == 95) || (charCode > 47 && charCode < 58) || (charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) )
+		return true;
+	else
+	{
+		alert("Please enter appropriate character");
+		return false;
+	}
+}
+
+</script>
+<html>
+<body><link href="styles.css" rel="stylesheet" type="text/css">
+<h1 align="center">Registration Form</h1>
+<form id="form1" name="form1" method="post" action="reg_upd.php" onSubmit="return valid_form(this)"><fieldset>
+<p align="left">Name:         	
+  <input type="text" name="name" id="nm" />
+  <br>
+    <br>
+ </p>
+  <p align="left">Father's Name: <input type="text" name="fname" id="fname" /> </p>
+   <br>
+    <br>
+  <p align="left">Registration Number: <input type="int" name="reg_no" id="reg_no" /> </p>
+   <br>
+    <br>
+   <p align="left"> Password: <input type="password" name="pws" id="pws" size=10><br>
+Re-enter:&nbsp;&nbsp; <input type="password" name="pwc" id="pwc" size=10>
+</p>
+<br><br>
+ <p align="left">Year of Admission:
+    <select name="admyear">
+      <option value="7">2007</option>
+      <option value="8">2008</option>
+      <option value="9">2009</option>
+      <option value="10">2010</option>
+      <option value="11">2011</option>
+      <option value="12">2012</option>
+      <option value="13">2013</option>
+      <option value="14">2014</option>
+      </select> </p>
+      <br><br>
+      
+  <p align="left">Date of Birth: Year
+    <select name="year">
+      <option value="87">1987</option>
+      <option value="88">1988</option>
+      <option value="89">1989</option>
+      <option value="90">1990</option>
+      <option value="91">1991</option>
+      <option value="92">1992</option>
+      <option value="93">1993</option>
+      <option value="94">1994</option>
+      <option value="95">1995</option>
+      </select> 
+    Month:
+    <select name="month" id="month">
+      <option value="01">January</option>
+      <option value="02">February</option>
+      <option value="03">March</option>
+      <option value="04">April</option>
+      <option value="05">May</option>
+      <option value="06">June</option>
+      <option value="07">July</option>
+      <option value="08">August</option>
+      <option value="09">September</option>
+      <option value="10">October</option>
+      <option value="11">November</option>
+      <option value="12">December</option>
+    </select>
+    <label for="date">Date</label>
+    <select name="date" id="date">
+      <option value="01">1</option>
+      <option value="02">2</option>
+      <option value="03">3</option>
+      <option value="04">4</option>
+      <option value="05">5</option>
+      <option value="06">6</option>
+      <option value="07">7</option>
+      <option value="08">8</option>
+      <option value="09">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+    </select>
+  </p>
+   <br>
+    <br>
+  <p align="left">
+    <label>Gender:
+      <input type="radio" name="sex" value="m" id="Sex:_0" />
+    Male</label>
+    
+    <label>
+      <input type="radio" name="sex" value="f" id="Sex:_1" />
+    Female</label>
+  
+  </p>
+   <br>
+    <br>
+  <p align="left">
+    <label for="city">City:&nbsp;&nbsp;&nbsp;&nbsp; </label>
+    <input type="text" name="city" id="city" />
+  </p>
+   <br>
+    <br>
+  <p align="left">Branch:    
+    <select name="Branch">
+      <option value="bi">Biotechnology</option>
+      <option value="ch">Chemical</option>
+      <option value="ci">Civil Engineering</option>
+      <option value="co">Computer Science</option>
+      <option value="el">Electrical Engineering</option>
+      <option value="ec">Electronics Engineering</option>
+      <option value="me">Mechanical</option>
+      <option value="pi">Food Processing</option>
+    </select>
+</p>
+ <br>
+    <br>
+  <p align="left">Contact Details:</p>
+  <p align="left">
+    <label for="textfield">Mobile No&nbsp;&nbsp;</label>
+    <input type="int" name="mob_no" id="textfield" />
+  </p>
+  <p align="left">
+    <label for="textfield">Contact No</label>
+    <input type="int" name="con_no" id="textfield" />
+  </p>
+  <p align="left">
+    <label for="email">E-mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </label>
+    <input type="text" name="email" id="email" />
+  </p>
+  <p align="left">
+   <br>
+    <br>
+    <label for="addr">Address    </label>
+    <div align="justify">
+      <textarea name="addr" id="addr" cols="45" rows="5"></textarea>
+    </div>
+  <p align="center">
+    <input name="register" type="submit" value="SUBMIT" />
+  </p>
+</fieldset></form>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</body>
+</html>

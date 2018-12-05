@@ -1,0 +1,6 @@
+<?php
+function mysqlconnect()
+{
+$con=mysql_connect("localhost","root");
+}
+?>

@@ -1,0 +1,34 @@
+<?php
+include("authenticate.php");
+include("mysqlconect.php");
+$con=mysqlconnect('localhost','root','19950228');
+mysql_select_db("student", $con);
+$uname=$_COOKIE['Login'];
+
+if(isset($_POST['email'])){
+	//echo "Hello email";
+	$query="update per_detail set email_id=\"$_POST[email]\" where reg_no=$uname";
+	$result=mysql_query($query,$con);
+	}
+	
+if(isset($_POST['phone'])){
+	$query="update per_detail set contact_no=\"$_POST[phone]\" where reg_no=$uname";
+	$result=mysql_query($query,$con);
+	}
+if(isset($_POST['mobile']))
+{
+	$query="update per_detail set mobile_no=\"$_POST[mobile]\" where reg_no=$uname";
+$result=mysql_query($query,$con);
+}
+
+$result=mysql_query($query,$con);
+if(isset($_POST['add']))
+{
+	$query="update per_detail set Address=\"$_POST[add]\" where reg_no=$uname";
+	
+$result=mysql_query($query,$con);
+}
+echo "Successfully Updated";
+//sleep(5);
+header('Location:home.php');
+?>

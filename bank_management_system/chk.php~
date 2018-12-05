@@ -1,0 +1,19 @@
+<?php
+include("authenticate.php");
+$uname=$_COOKIE[Login];
+$con=mysql_connect("localhost","root");
+mysql_select_db("user",$con);
+$query="select * from student where reg_no=$uname";
+$result=mysql_query($query,$con);
+while($row=mysql_fetch_array($result))
+  {
+  $a=$row['sex'];
+  }
+  //echo $a;
+if($a=='f') 
+header('Location:editf.php');
+else {
+	header('Location:edit.php');
+	}
+echo $a;
+?>

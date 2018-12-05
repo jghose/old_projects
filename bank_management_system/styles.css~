@@ -1,0 +1,94 @@
+/* STANDARD TAG REDEFINITIONS */
+BODY{
+	
+	color: White;
+	background-image : 2.jpg;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	background-color: #000;
+	margin: 0;
+	padding: 40px 0 0 0;
+	text-align:center;
+}
+TD {font-size: 10pt;  }
+p { font-size: 10pt;  margin-bottom: 7px; margin-top:0; }
+a{
+	color: #FFF;
+	text-decoration: none;
+	background-color: #999;
+}
+a:hover{
+	text-decoration: underline;
+	color: #0F9;
+}
+form{	margin:0;}
+
+#HEADER{	width:1160px; margin-left:auto; margin-right:auto;}
+#HEADER ul{
+	margin: 0;
+	padding-left: 0;
+	height: 40px;
+	line-height: 14px;
+	display: block;
+	list-style: none;
+	background-color: #06F;
+	background-image: url(bg_topnav.gif);
+	background-repeat: no-repeat;
+}
+#HEADER li{
+	display: inline;
+	background-color: #000;
+	float: right;
+}
+#HEADER li a{ height: 40px; line-height: 14px; display: block; padding-left: 27px; padding-right: 27px; border-left: 1px solid Black;  float: left;     }
+#HEADER li a:hover{
+	background-color: #999;
+	text-decoration: none;
+}
+#HEADER .Visual{
+	height:40px;
+	background-repeat: no-repeat;
+	background-color: #000;
+	border-top: 3px solid Black;
+}
+h1{
+	margin: 0;
+	padding: 40px 0 0 0;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: normal;
+	letter-spacing: 0.005em;
+	color:red;
+	font-size: 30pt;
+	background-image: url(background-2.gif);
+}
+
+#CONTENT{ width:760px; margin-left:auto; margin-right:auto;   }
+h2{
+	margin: 0;
+	padding: 24px 0 7px 40px;
+	font-family: "trebuchet ms",arial,tahoma,verdana,sans-serif;
+	font-weight: normal;
+	letter-spacing: .005em;
+	color: White;
+	font-size: 15pt;
+	background-color: #666;
+}
+#TEXT{
+	padding: 35px 40px 35px 40px;
+	border-bottom: 1px solid #484848;
+	border-top: 1px solid #484848;
+	background-color: #666;
+	background-image: url(background2.jpg);
+}
+#TEXT p{	margin-bottom: 1em;}
+
+#FOOTER{	width:760px; margin-top:27px; margin-left:auto; margin-right:auto;  border-top: 4px solid #363636;  text-align: right;  padding-top: 5px;   }
+#FOOTER p{ font-size: 11px; line-height: 14px; margin: 0;  color: #DDDDDD; }
+#FOOTER a{
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: none;
+	color: White;
+	background-color: #000;
+}
+#FOOTER a:hover{ color: white; text-decoration: underline; }

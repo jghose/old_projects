@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+<link href="styles.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body><fieldset><form id="form1" name="form1" method="post" action="select_reg.php">
+    <h1 align="center">Select Room Mate Preferance
+    </font></h1>
+   
+   
+  <p>&nbsp;</p>
+   <p><font color="#FF0000" size="3"><strong>*select either registration number or name and branch</strong></font></p>
+  <p align="justify">
+   <input name="chktrue" type="checkbox"/> <label>REGISTRATION NO..	
+      <input type="text" name="NAME" id="NAME" />
+      <br />
+    </label>	
+    <pre>
+    </pre>
+  </p>
+ 
+<p align="justify">
+  <label for="NAME">NAME  </label>
+  <input type="text" name="NAME2" id="NAME" />
+</p>
+<br> <br> <br>
+<p align="justify">
+BRANCH:
+<select name="Branch">
+<option>Biotechnology</option>
+<option>Chemical</option>
+<option>Civil Engineering</option>
+<option>Computer Science</option>
+<option>Electrical Engineering</option>
+<option>Electronics Engineering</option>
+<option>Mechanical</option>
+<option>Production</option>
+</select></p>
+<br /><br />
+<pre>
+</pre>
+<p align="justify">
+Hostel Option:
+<select name="hpref">
+<option value="t">M.S. Swaminathan</option>
+<option value="m">Homi Baba</option>
+<option value="T">Sarabhai</option>
+<option value="P">D.B.A.</option>
+</select><br /><br /></p>
+<pre>
+</pre>
+<p align="center"><input name="Submit" type="submit" value="Submit" /></p>
+</form></fieldset>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

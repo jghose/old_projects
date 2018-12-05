@@ -1,0 +1,22 @@
+The following packages are required for the system:--
+
+    1.  Apache2
+    2.  Mysql-server
+    3.  mysql client
+    4.  mysql cluster client
+    5.  php5-mysql
+    6.  phpmyadmin
+    They can be installed by giving the command "sudo apt-get install "package-name""
+
+
+		==>Steps Involved<==
+(All the following operations require root privilege)		
+Unzip the folder in the httpdocs folder of the apache configuration.(/var/www/ in linux systems)
+Edit the server and password of the sql configuration from the file mysqlconect.php.
+Unzip the user file in the sql database library.(/var/lib/mysql) in case of linux systems.
+Change the permissions of all files as readable.(chmod 777 /var/lib/mysql/user/*)
+Restart apache(/etc/init.d/apache2 restart)
+Restart mysql server(/etc/init.d/mysql restart)
+Open localhost from any browser............
+=====>Thank You<=======
+(The Tux team)

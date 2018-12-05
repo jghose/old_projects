@@ -1,0 +1,259 @@
+
+<html ><head>
+<html>
+<body>
+
+<?php
+//include("mysqlconnect.php");
+if (isset($_COOKIE["Login"])&&isset($_COOKIE["paa"]))
+{
+	$con=mysql_connect("localhost","root");
+	mysql_select_db("user",$con);
+$sql="SELECT password FROM u_name where reg_no=$_COOKIE[Login]";
+$result=mysql_query($sql,$con);
+while($row=mysql_fetch_array($result))
+  {
+  $a=$row['password'];
+  }
+//echo $a;
+
+if(!$a){
+   header('Location:/wrongun.html');
+}
+if($a==$_COOKIE['paa'])
+  echo "Welcome " . $_COOKIE["Login"] . "!<br />";
+else
+{
+ header('Location:/index.html');
+}
+
+}
+else header('Location:/index.html');
+$uname=$_COOKIE["Login"];
+?>
+</body>
+</html> 
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Hostel Management System</title>
+
+<link href="styles.css" rel="stylesheet" type="text/css">
+<link href="styles.css" rel="stylesheet" type="text/css">
+<div id="HEADER">
+	<h1 align="center" font size=18>NIT-ROURKELA Hostel Management System </h1>
+
+	<ul>
+
+		<li><a href="home.php">Home</a></li>
+		<li><a href="cus.php">Contact Us</a></li>
+		<li><a href="forgot.html"target="_blank">Forgot Password</a></li>
+		<li><a href="http://nitrkl.ac.in/CurrentStudents/8HallsofResidence/Default.aspx"target="_blank">Hostels</a></li>
+		<li><a href="viewpref.php">View Preference</a></li>
+		
+			<li><a href="chk.php">Update Your Preference</a></li>
+			<li><a href="logout.php">Logout</a></li>
+		
+
+	</ul>
+<script src="home.php_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20513375-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+</head><body background="back.jpg">
+		  <div class="midtxt" style="font-size: 13px; margin: 0px 0pt 0pt;" align="left">
+		                
+        <font size="5">
+
+<table align="left" border="0" cellpadding="6" cellspacing="0">
+  <tbody background="back.jpg"><tr>
+    <td width="30%"><strong>Name:</strong><br></td>
+    <td width="45%">
+<?php
+//echo $uname;
+$con=mysql_connect("localhost","root");
+mysql_select_db("user",$con);
+$query="select name from student where reg_no='$uname'";
+$result=mysql_query($query,$con);
+ while($row=mysql_fetch_array($result))
+  {
+  $a=$row['name'];
+  }
+echo "<font size=\"4\"> $a";
+?>
+
+</td>
+   
+  </tr>
+  <tr>
+    <td><div align="justify"><strong>Father's Name:<br>
+    </strong></div></td>
+    <td><?php
+//echo $uname;
+//$con=mysql_connect("localhost","root");
+mysql_select_db("user",$con);
+$query="select fname from student where reg_no='$uname'";
+$result=mysql_query($query,$con);
+ while($row=mysql_fetch_array($result))
+  {
+  $b=$row['fname'];
+  }
+echo "<font size=\"4\"> $b";
+?></td>
+  </tr>
+  <tr>
+    <td><div align="justify"><strong>Date of Birth:  </strong></div></td>
+   <td>
+<?php
+$query="select dob from student where reg_no='$uname'";
+$result=mysql_query($query,$con);
+ while($row=mysql_fetch_array($result))
+  {
+  $c=$row['dob'];
+  }
+echo "<font size=\"4\"> $c";
+?>
+</td>
+  </tr>
+  <tr>
+    <td><div align="justify"><strong>Gender:</strong></div></td>
+    <td>
+    <?php
+    $query="select sex from student where reg_no='$uname'";
+    $result=mysql_query($query,$con);
+ while($row=mysql_fetch_array($result))
+  {
+  	
+  $a=$row['sex'];
+  }
+  if($a=="m") 
+echo "<font size=\"4\"> Male";
+if($a=="f")
+echo "<font size=\"4\"> Female";
+?>
+</td>
+  </tr>
+  <tr>
+     </tr>
+ </tbody></table>
+ </font>
+ <?php
+ $query="select email_id from per_detail where reg_no='$uname'";
+$result=mysql_query($query,$con);
+ while($row=mysql_fetch_array($result))
+  {
+  $email=$row['email_id'];
+  }
+  ?>
+  <?php
+$query="select contact_no from per_detail where reg_no='$uname'";
+$result=mysql_query($query,$con);
+ while($row=mysql_fetch_array($result))
+  {
+  $nunm=$row['contact_no'];
+  }
+?>
+<?php
+$query="select mobile_no from per_detail where reg_no='$uname'";
+$result=mysql_query($query,$con);
+ while($row=mysql_fetch_array($result))
+  {
+  $mob=$row['mobile_no'];
+  }
+?>
+<?php
+$query="select Address from per_detail where reg_no='$uname'";
+$result=mysql_query($query,$con);
+ while($row=mysql_fetch_array($result))
+  {
+  $addr=$row['Address'];
+  }
+?>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+  <br>
+ <br>
+ <br>
+ <br>
+ <br>
+  <p align="left"><font size="5"><u><strong> Editable details</strong></u></font></p>
+<p align="left">&nbsp;</p><form name="form1" method="post" action="personal.php">
+<p class="midboldtxt" align="left"></p>
+<p align="left"></p>
+<p align="left"><font color="#ff0000"><b> </b></font></p>
+<table cellpadding="6">
+  <tbody><tr>
+    <td width="32%"><div align="justify"><strong>E-Mail:</strong></div></td>
+    <?php
+    echo "<td width=\"54%\"><input name=\"email\" size=\"35\" maxlength=\"150\" value=\"$email\" disabled=\"disabled\" type=\"text\"></td>"
+    ?>
+    <td width="14%"><input name="c_email" id="c_email" value="y" onclick="form1.email.disabled =!this.checked;" type="checkbox"></td>
+    </tr>
+  <tr>
+    <td><div align="justify"><strong>Contact No (Home): </strong></div></td>
+   <?php echo "<td><input name=\"phone\" size=\"35\" maxlength=\"15\" value=\"$nunm\" disabled=\"disabled\" type=\"text\"></td>"?>
+    <td><input name="c_phone" id="c_phone" value="y" onclick="form1.phone.disabled =!this.checked;" type="checkbox">
+     </td>
+    </tr>
+  <tr>
+    <td><div align="justify"><strong>Mobile (Local):</strong></div></td>
+    <?php echo "<td><input name=\"mobile\" size=\"35\" maxlength=\"15\" value=\"$mob\" disabled=\"disabled\" type=\"input\"></td>"?>
+    <td><input name="c_mobile" id="c_mobile" value="y" onclick="form1.mobile.disabled =!this.checked;" type="checkbox"></td>
+    </tr>
+    <tr>
+    <td valign="top"><div align="justify"><strong>Address:<br>
+    </strong></div></td>
+    <!--<td><input name="add" type="text" size="50" maxlength="250" value="" disabled="disabled"></td>-->
+	<td><textarea name="add" cols="27" rows="5" disabled="disabled"><?php echo $addr;?></textarea></td>
+    <td><input name="c_add" id="c_add" value="y" onclick="form1.add.disabled =!this.checked;" type="checkbox"></td>
+    </tr>
+  <tr>
+  <td></td>
+    <td colspan="2" align="center"><input name="Submit" value="Submit Details" type="submit">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </td>
+    </tr>
+</tbody></table><p class="midboldtxt" align="center"></p>
+</form>
+
+				<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+				</div>
+			 <div id="6" style="display: none;">
+              			  
+             </div> 
+			 
+</div>
+ <div id="contentrightblank">
+      <div id="implinks">
+       <div class="rightheading">
+ 
+
+        <br>
+
+        
+  </div></div>
+</div>
+       
+</div></body></html>
